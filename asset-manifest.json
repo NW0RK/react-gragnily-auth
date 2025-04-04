@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react-gragnily-auth/static/css/main.be54957a.css",
-    "main.js": "/react-gragnily-auth/static/js/main.f9eaa82c.js",
+    "main.css": "/react-gragnily-auth/static/css/main.4c0d06a9.css",
+    "main.js": "/react-gragnily-auth/static/js/main.89766989.js",
     "index.html": "/react-gragnily-auth/index.html",
-    "main.be54957a.css.map": "/react-gragnily-auth/static/css/main.be54957a.css.map",
-    "main.f9eaa82c.js.map": "/react-gragnily-auth/static/js/main.f9eaa82c.js.map"
+    "main.4c0d06a9.css.map": "/react-gragnily-auth/static/css/main.4c0d06a9.css.map",
+    "main.89766989.js.map": "/react-gragnily-auth/static/js/main.89766989.js.map"
   },
   "entrypoints": [
-    "static/css/main.be54957a.css",
-    "static/js/main.f9eaa82c.js"
+    "static/css/main.4c0d06a9.css",
+    "static/js/main.89766989.js"
   ]
 }
