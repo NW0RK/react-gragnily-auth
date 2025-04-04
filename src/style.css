@@ -1,0 +1,195 @@
+/* src/style.css */
+
+/* --- Variables based on the image's aesthetic --- */
+:root {
+    --bg-color: #F5F1EA;         /* Very light beige page background */
+    --container-bg: #EAE3D9;   /* Slightly darker beige for containers/inputs */
+    --primary-accent: #F78F2E;   /* Bright orange (like the logo bg) */
+    --secondary-accent: #E8946E; /* Muted orange/coral button (like 'ნახვა') */
+    --text-color: #4A443F;       /* Dark grey/brown text */
+    --placeholder-color: #a09a94; /* Lighter text for placeholders */
+    --white: #FFFFFF;
+    --border-radius-large: 25px; /* Generous rounding for containers */
+    --border-radius-medium: 15px;/* Rounding for inputs/buttons */
+    --font-family: 'Poppins', sans-serif; /* Rounded sans-serif */
+}
+
+/* --- Basic Reset & Body Styling --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Common outer wrapper for auth pages */
+.auth-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 450px; /* Limit width */
+}
+
+/* --- Logo Area --- */
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logo-icon {
+    background-color: var(--primary-accent);
+    color: var(--white);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+/* If using Font Awesome class directly */
+.logo-icon .fa-book-open {
+    line-height: 1; /* Adjust if icon alignment is off */
+}
+
+
+.site-name {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+/* --- Shared Auth Container Styling --- */
+.auth-form-container {
+    background-color: var(--container-bg);
+    padding: 35px 40px;
+    border-radius: var(--border-radius-large);
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.auth-form-container h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+/* --- Form Elements Styling --- */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid transparent;
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius-medium);
+    font-size: 1rem;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input::placeholder {
+    color: var(--placeholder-color);
+    font-weight: 400;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--secondary-accent);
+    box-shadow: 0 0 0 3px rgba(232, 148, 110, 0.2);
+}
+
+/* --- Forgot Password Link --- */
+.forgot-password-link {
+    text-align: right;
+    margin-bottom: 20px;
+    margin-top: -10px;
+}
+
+.forgot-password-link a {
+    color: var(--text-color);
+    font-size: 0.85rem;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-password-link a:hover {
+    color: var(--primary-accent);
+    text-decoration: underline;
+}
+
+/* --- Button Styling --- */
+.btn-auth { /* Renamed for clarity */
+    background-color: var(--secondary-accent);
+    color: var(--white);
+    border: none;
+    padding: 14px 25px;
+    border-radius: var(--border-radius-medium);
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: var(--font-family);
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.btn-auth:hover {
+    background-color: #d9825a;
+}
+
+.btn-auth:active {
+    transform: scale(0.98);
+}
+
+/* --- Bottom Links (Toggle) --- */
+.toggle-link { /* Shared class for bottom links */
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.toggle-link a {
+    color: var(--primary-accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.toggle-link a:hover {
+    text-decoration: underline;
+}
+
+/* Font Awesome basic setup */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+/* Google Font import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
