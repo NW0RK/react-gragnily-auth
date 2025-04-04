@@ -39,3 +39,11 @@
     ]
   }
 }
+
+{
+  "homepage": "https://nw0rk.github.io/react-gragnily-auth/"
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+  }
+}
