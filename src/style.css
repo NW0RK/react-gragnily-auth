@@ -193,3 +193,58 @@ body {
 
 /* Google Font import */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Add this at the end of src/style.css */
+
+@media (max-height: 750px) { /* Adjust 750px threshold as needed */
+
+    .auth-form-container {
+        padding: 20px 35px; /* Even less padding on short screens */
+    }
+
+    .logo-container {
+        margin-bottom: 15px;
+    }
+
+     .auth-form-container h2 {
+        font-size: 1.4rem; /* Smaller heading */
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 12px; /* Tighter form groups */
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="password"] {
+        padding: 9px 15px; /* Shorter inputs */
+        font-size: 0.95rem;
+    }
+
+     .btn-auth {
+        padding: 10px 20px;
+        font-size: 1rem;
+        margin-top: 12px;
+    }
+
+    .toggle-link {
+       margin-top: 15px;
+       font-size: 0.85rem;
+    }
+
+     .forgot-password-link {
+        margin-bottom: 12px;
+        font-size: 0.8rem;
+    }
+
+    /* Add any other adjustments needed for small heights */
+}
+
+/* You might also want one for very narrow screens */
+@media (max-width: 400px) {
+     .auth-form-container {
+        padding: 20px 25px; /* Less horizontal padding too */
+    }
+     /* Add specific width adjustments if needed */
+}
