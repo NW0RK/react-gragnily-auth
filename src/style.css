@@ -1,18 +1,24 @@
 /* src/style.css */
 
-/* --- Variables based on the image's aesthetic --- */
+/* --- Variables --- */
 :root {
-    --bg-color: #F5F1EA;         /* Very light beige page background */
-    --container-bg: #EAE3D9;   /* Slightly darker beige for containers/inputs */
-    --primary-accent: #F78F2E;   /* Bright orange (like the logo bg) */
-    --secondary-accent: #E8946E; /* Muted orange/coral button (like 'ნახვა') */
-    --text-color: #4A443F;       /* Dark grey/brown text */
-    --placeholder-color: #a09a94; /* Lighter text for placeholders */
+    --bg-color: #F5F1EA;
+    --container-bg: #EAE3D9;
+    --primary-accent: #F78F2E;
+    --secondary-accent: #E8946E;
+    --text-color: #4A443F;
+    --placeholder-color: #a09a94;
     --white: #FFFFFF;
-    --border-radius-large: 25px; /* Generous rounding for containers */
-    --border-radius-medium: 15px;/* Rounding for inputs/buttons */
-    --font-family: 'Poppins', sans-serif; /* Rounded sans-serif */
+    --border-radius-large: 25px;
+    --border-radius-medium: 15px;
+    --font-family: 'Poppins', sans-serif;
 }
+
+/* --- Imports --- */
+/* Placed near top for clarity */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 
 /* --- Basic Reset & Body Styling --- */
 * {
@@ -29,23 +35,32 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
+    padding: 20px; /* Padding around the content on the page */
 }
 
-/* Common outer wrapper for auth pages */
+/* --- Page Structure --- */
 .auth-page {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 450px; /* Limit width */
+    max-width: 450px; /* Max width for the signup/login form area */
+}
+
+.auth-form-container {
+    background-color: var(--container-bg);
+    padding: 30px 40px; /* Adjusted default vertical padding */
+    border-radius: var(--border-radius-large);
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
 }
 
 /* --- Logo Area --- */
 .logo-container {
     display: flex;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px; /* Adjusted default margin */
 }
 
 .logo-icon {
@@ -59,12 +74,12 @@ body {
     align-items: center;
     font-size: 1.5rem;
     margin-right: 15px;
-}
-/* If using Font Awesome class directly */
-.logo-icon .fa-book-open {
-    line-height: 1; /* Adjust if icon alignment is off */
+    flex-shrink: 0; /* Prevent icon shrinking */
 }
 
+.logo-icon .fa-book-open {
+    line-height: 1; /* Helps vertical alignment */
+}
 
 .site-name {
     font-size: 2.8rem;
@@ -72,26 +87,25 @@ body {
     color: var(--text-color);
 }
 
-/* --- Shared Auth Container Styling --- */
-.auth-form-container {
-    background-color: var(--container-bg);
-    padding: 25px 40px;
-    border-radius: var(--border-radius-large);
-    width: 100%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    text-align: center;
-}
-
+/* --- Headings & Text --- */
 .auth-form-container h2 {
     font-size: 1.6rem;
     font-weight: 600;
-    margin-bottom: 30px;
+    margin-bottom: 25px; /* Adjusted default margin */
     color: var(--text-color);
 }
 
-/* --- Form Elements Styling --- */
+.instruction-text {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  margin-bottom: 25px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* --- Form Elements --- */
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 18px; /* Adjusted default margin */
     text-align: left;
 }
 
@@ -103,23 +117,28 @@ body {
     color: var(--text-color);
 }
 
+/* Base input styles */
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="password"] {
     width: 100%;
-    padding: 12px 18px;
+    padding: 11px 18px; /* Adjusted default padding */
     border: 1px solid transparent;
     background-color: var(--bg-color);
     border-radius: var(--border-radius-medium);
-    font-size: 1rem;
+    font-size: 1rem; /* Size for user-typed text */
     font-family: var(--font-family);
     color: var(--text-color);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-group input::placeholder {
-    color: var(--placeholder-color);
-    font-weight: 400;
+/* Consolidated placeholder styles */
+.form-group input[type="text"]::placeholder,
+.form-group input[type="email"]::placeholder,
+.form-group input[type="password"]::placeholder {
+  color: var(--placeholder-color);
+  font-weight: 400;
+  font-size: 0.85rem; /* Smaller font size for placeholder text */
 }
 
 .form-group input:focus {
@@ -128,11 +147,11 @@ body {
     box-shadow: 0 0 0 3px rgba(232, 148, 110, 0.2);
 }
 
-/* --- Forgot Password Link --- */
+/* --- Links --- */
 .forgot-password-link {
     text-align: right;
-    margin-bottom: 20px;
-    margin-top: -10px;
+    margin-bottom: 18px; /* Align with form-group margin */
+    margin-top: -8px; /* Slightly reduced negative margin */
 }
 
 .forgot-password-link a {
@@ -142,188 +161,107 @@ body {
     font-weight: 500;
 }
 
-.forgot-password-link a:hover {
-    color: var(--primary-accent);
-    text-decoration: underline;
+.toggle-link { /* Bottom links to swap forms */
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: var(--text-color);
 }
 
-/* --- Button Styling --- */
-.btn-auth { /* Renamed for clarity */
+.toggle-link a,
+.forgot-password-link a:hover { /* Apply hover effect here too */
+    color: var(--primary-accent);
+    text-decoration: none; /* Remove underline by default */
+}
+
+.toggle-link a:hover,
+.forgot-password-link a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* --- Button --- */
+.btn-auth {
     background-color: var(--secondary-accent);
     color: var(--white);
     border: none;
-    padding: 14px 25px;
+    padding: 12px 25px; /* Adjusted default padding */
     border-radius: var(--border-radius-medium);
     font-size: 1.1rem;
     font-weight: 600;
     font-family: var(--font-family);
     cursor: pointer;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 15px; /* Consistent top margin */
     transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
 .btn-auth:hover {
-    background-color: #d9825a;
+    background-color: #d9825a; /* Slightly darker accent on hover */
 }
 
 .btn-auth:active {
-    transform: scale(0.98);
+    transform: scale(0.98); /* Click feedback */
 }
 
-/* --- Bottom Links (Toggle) --- */
-.toggle-link { /* Shared class for bottom links */
-    margin-top: 25px;
-    font-size: 0.9rem;
-    color: var(--text-color);
+/* --- Two-Column Layout for Signup --- */
+.form-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 20px; /* Space between columns */
+  margin-bottom: 20px; /* Space below columns, before button */
+  width: 100%;
 }
 
-.toggle-link a {
-    color: var(--primary-accent);
-    text-decoration: none;
-    font-weight: 600;
+.form-column {
+  /* Container for form groups within a column */
+  display: flex;
+  flex-direction: column;
+  /* Use form-group margin for spacing within column */
 }
 
-.toggle-link a:hover {
-    text-decoration: underline;
+/* --- Responsive Adjustments --- */
+
+/* Stack columns on medium/small screens */
+@media (max-width: 650px) {
+  .form-columns {
+    grid-template-columns: 1fr; /* Single column */
+    gap: 0; /* No horizontal gap */
+    margin-bottom: 0; /* Let form-group margins handle spacing */
+  }
+
+  /* Ensure spacing between the last item of first column and first item of second */
+   .form-column:first-child .form-group:last-child {
+     margin-bottom: 18px; /* Match standard form-group margin */
+   }
 }
 
-/* Font Awesome basic setup */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
-
-/* Google Font import */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
-<<<<<<< HEAD
-/* Added this  */
-=======
-/* Add this at the end of src/style.css */
->>>>>>> 3a7072d63ea50253458e01bfe8db7553b68df915
-
-@media (max-height: 750px) { /* Adjust 750px threshold as needed */
-
+/* Further adjustments specifically for very short screens */
+@media (max-height: 750px) {
     .auth-form-container {
-        padding: 20px 35px; /* Even less padding on short screens */
+        padding-top: 20px;    /* Reduce padding further */
+        padding-bottom: 20px;
     }
+    .logo-container { margin-bottom: 15px; }
+    .auth-form-container h2 { font-size: 1.4rem; margin-bottom: 20px; }
+    .instruction-text { margin-bottom: 20px; }
+    .form-group { margin-bottom: 15px; }
 
-    .logo-container {
-        margin-bottom: 15px;
-    }
-
-     .auth-form-container h2 {
-        font-size: 1.4rem; /* Smaller heading */
-        margin-bottom: 15px;
-    }
-
-    .form-group {
-        margin-bottom: 12px; /* Tighter form groups */
-    }
-
+    /* Significantly reduce input/button size on short screens */
     .form-group input[type="text"],
     .form-group input[type="email"],
     .form-group input[type="password"] {
-        padding: 9px 15px; /* Shorter inputs */
+        padding: 9px 15px;
         font-size: 0.95rem;
     }
-
-     .btn-auth {
-        padding: 10px 20px;
-        font-size: 1rem;
-        margin-top: 12px;
-    }
-
-    .toggle-link {
-       margin-top: 15px;
-       font-size: 0.85rem;
-    }
-
-     .forgot-password-link {
-        margin-bottom: 12px;
-        font-size: 0.8rem;
-    }
-
-    /* Add any other adjustments needed for small heights */
+    .btn-auth { padding: 10px 20px; font-size: 1rem; margin-top: 12px; }
+    .toggle-link { margin-top: 20px; font-size: 0.85rem; }
+    .forgot-password-link { margin-bottom: 15px; font-size: 0.8rem; }
 }
 
-/* You might also want one for very narrow screens */
+/* Further padding reduction for very narrow screens */
 @media (max-width: 400px) {
      .auth-form-container {
-        padding: 20px 25px; /* Less horizontal padding too */
-    }
-     /* Add specific width adjustments if needed */
+        padding-left: 25px;
+        padding-right: 25px;
+     }
+     .site-name { font-size: 2.4rem; } /* Slightly smaller logo text */
 }
-
-/* Container for the form columns */
-.form-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Create two equal-width columns */
-  gap: 20px; /* Adjust the space between the columns */
-  margin-bottom: 20px; /* Add space between the columns and the button below */
-  width: 100%; /* Ensure it takes available width */
-}
-
-/* Styles for each column (might not need specific styles,
-   but the class is useful for structure) */
-.form-column {
-  display: flex;
-  flex-direction: column;
-  gap: 15px; /* Adjust vertical space between items WITHIN a column if needed */
-              /* Note: .form-group already has margin-bottom, so this might
-                 be redundant or you might adjust .form-group margin instead */
-}
-
-
-/* Ensure form groups within columns don't have excessive bottom margin
-   if the column gap provides enough space */
-.form-column .form-group {
-   /* margin-bottom: 15px; */ /* Check if this default is still good, or adjust/remove */
-}
-
-
-/* --- Responsive Adjustments --- */
-/* On smaller screens, stack the columns vertically */
-@media (max-width: 650px) { /* Adjust this breakpoint as needed */
-  .form-columns {
-    grid-template-columns: 1fr; /* Back to a single column */
-    gap: 0; /* No horizontal gap needed */
-    margin-bottom: 0; /* Reset margin as form groups will have their own */
-  }
-
-  /* Re-introduce consistent spacing between groups when stacked */
-   .form-column:first-child .form-group:last-child {
-     /* This targets the 'Email' group when stacked */
-     /* Make sure it has bottom margin before the 'Password' group */
-     margin-bottom: 15px; /* Or match your standard .form-group margin */
-   }
-
-   .form-column {
-     gap: 0; /* Reset column gap */
-   }
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="password"] {
-    width: 100%;
-    padding: 12px 18px; /* Or your adjusted value */
-    border: 1px solid transparent;
-    background-color: var(--bg-color);
-    border-radius: var(--border-radius-medium);
-    font-size: 1rem; /* This is the size of the text the user types */
-    font-family: var(--font-family);
-    color: var(--text-color);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.form-group input::placeholder { /* This might already exist for color */
-    color: var(--placeholder-color);
-    font-weight: 400;
-}
-
-.form-group input[type="text"]::placeholder,
-.form-group input[type="email"]::placeholder,
-.form-group input[type="password"]::placeholder {
-  color: var(--placeholder-color); /* Keep the color setting */
-  font-weight: 400; /* Keep the font-weight if desired */
-  font-size: 0.85rem; /* Adjust this value! Make it smaller than the input's font-size */
-  /* You might need !important if other styles override, but try without first */}
