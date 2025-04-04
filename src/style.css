@@ -194,7 +194,11 @@ body {
 /* Google Font import */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+<<<<<<< HEAD
 /* Added this  */
+=======
+/* Add this at the end of src/style.css */
+>>>>>>> 3a7072d63ea50253458e01bfe8db7553b68df915
 
 @media (max-height: 750px) { /* Adjust 750px threshold as needed */
 
@@ -322,5 +326,4 @@ body {
   color: var(--placeholder-color); /* Keep the color setting */
   font-weight: 400; /* Keep the font-weight if desired */
   font-size: 0.85rem; /* Adjust this value! Make it smaller than the input's font-size */
-  /* You might need !important if other styles override, but try without first */
-}
+  /* You might need !important if other styles override, but try without first */}
